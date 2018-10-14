@@ -18,12 +18,11 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
 
     #retrieve the keywords
     for line in keyword_file:
-        line = line.lower()
-        if line[1] == '\n':
+        line = line.lower().replace('\n', '')
+        if len(line) < 2:
             break
-        if line[-1] != '\n':
-            keywords[line[:-1]] = True
-        keywords[str(line[:-2])]= True
+        line = line[:-1]
+        keywords[line]= True
 
     #read sentences in input
     cnt_line = 0
@@ -80,7 +79,7 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
     print ("Number of words so far:", len(words_canvas))
 
 
-generate_quizlet('sunny', part_id=8)
+generate_quizlet('sunny', part_id=9)
 # generate_quizlet('alan', part_id=5)
 
 
