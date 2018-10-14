@@ -1,7 +1,9 @@
 from random import shuffle
 import codecs
+import platform
 
 stop_words = "0123456789.,;:'!@#$%^&*()_-=+<>?"
+cut_tail = int( platform.system() == "Windows")
 
 def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
     root_path = './data/' + class_name
@@ -21,7 +23,7 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
         line = line.lower().replace('\n', '')
         if len(line) < 2:
             break
-        line = line[:-1]
+        line = line[:-cut_tail]
         keywords[line]= True
 
     #read sentences in input
@@ -37,7 +39,7 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
             break
 
         #preprocessing lines
-        line = line.lower().replace('\n', '')[:-1]
+        line = line.lower().replace('\n', '')[:-cut_tail]
         input_sentences.append(line)
 
         # count number studied words so far
