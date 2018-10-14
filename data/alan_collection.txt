@@ -1,0 +1,60 @@
+We modify and extend this architecture such that it works with very few training images and yields more precise segmentations
+the original MNIST is augmented with additional noise and distortion in order to make the problem more challenging
+Panoptic segmentation unifies the typically distinct tasks of semantic segmentation and instance segmentation
+assign a class label to each pixel
+detect and segment each object instance
+The proposed task requires generating a coherent scene segmentation that is rich and complete
+early work in computer vision addressed related image/scene parsing tasks
+these are not currently popular, possibly due to lack of appropriate metrics or associated recognition challenges
+to capture performance for all classes (stuff and things) in an interpretable and unified manner
+Using the proposed metric, we perform a rigorous study of both human and machine performance
+to reveal interesting insights about the task
+The aim of our work is to revive the interest of the community in a more unified view of image segmentation
+In the early days of computer vision, things – countable objects  received the dominant share of attention
+Questioning the wisdom of this trend, Adelson elevated the importance of studying systems that recognize stuff
+Studying stuff is most commonly formulated as a task known as semantic segmentation
+As stuff is amorphous and uncountable, this task is defined as simply assigning a class label to each pixel in an image
+note that semantic segmentation treats thing classes as stuff
+In contrast, studying things is typically formulated as the task of object detection or instance segmentation
+While seemingly related, the datasets, details, and metrics for these two visual recognition tasks vary substantially
+Stuff classifiers are usually built on fully convolutional nets with dilations
+Overall algorithmic progress on these tasks has been incredible in the past decade
+One trivial solution is to increase the number of samples on the background region
+We push this notion to the extreme and use all background pixels for training
+However, we only consider the unary prediction instead of pairwise relationships
+an example associated with the idea of equation 3 is illustrated in figure 2
+we apply equation 3 on top of the outputs of a softmax layer in a standard FCN which was originally designed for semantic segmentation
+The loss function is easy to deploy and combine with other pixel-wise prediction tasks
+the number of pairs grow quadratically with the number of pixels in an image
+it is not feasible to use all pixels in an image
+we adopt a sampling strategy
+we proposed a novel objective to train a network to perform a clustering-based instance labeling
+by adjusting the sampling method, we are able to inject the graph coloring strategy into the learning objective
+to demonstrate the generalizability and applicability of proposed learning strategy
+besides the effect of semantic segmentation and confidence ranking
+another dominant failure mode is that neighboring segments are assigned with the same ID
+an example is the third row in figure 6 which merges adjacent cars
+another defect is that the network sometimes does over-segmentation
+we leave possible enhancement for future work
+the results show a clear trend that the AP increased as the semantic segmentation enhanced
+our method has significant advantage over the JGD which also leverages the graph labeling concept
+Recent advances in object detection are driven by the success of region proposal methods and RCNN
+RCNN were computationally expensive as originally developed
+their cost has been drastically reduced thanks to sharing convolutions across proposals
+Nevertheless the region proposal step still consumes as much running time as the detection network
+fast RCNNs take advantage of GPUs, while the region proposal methods are implemented on the CPU, making such runtime comparisons inequitable
+An obvious way to accelerate proposal computation is to reimplement it for the GPU
+leads to an elegant and effective solution
+Our observation is that the convolutional feature maps can also be used for generating region proposals
+On top of these convolutional features, we construct an RPN by adding a few additional convolutional layers
+that simultaneously regress region bounds and objectness scores at each location on a regular grid
+Since the background contains the majority of pixels in an image
+the sampled points are very sparse
+the density of sampled points on background is roughly 0.005%
+In fact the predicted instances tend to stretch significantly into the background region
+The human visual system is fast and accurate, allowing us to perform complex tasks with little conscious thought
+to enable assistive devices to convey real-time scene information to human users
+Current detection systems repurpose classifiers to perform detection
+these systems take a classifier for that object and evaluate it at various locations and scales in a test image
+post-processing is used to refine the bounding boxes, eliminate duplicate detections
+This unified model has several benefits over traditional methods of object detection.

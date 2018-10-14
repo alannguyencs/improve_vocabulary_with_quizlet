@@ -1,0 +1,15 @@
+treats|note that semantic segmentation __________ thing classes as stuff
+deploy|the loss function is easy to __________ and combine with other pixel-wise prediction tasks
+amorphous|as stuff is __________ and uncountable, this task is defined as simply assigning a class label to each pixel in an image
+novel|we proposed a __________ objective to train a network to perform a clustering-based instance labeling
+associated|an example __________ with the idea of equation 3 is illustrated in figure 2
+advances|recent __________ in object detection are driven by the success of region proposal methods and rcnn
+computationally|rcnn were __________ expensive as originally developed
+drastically|their cost has been __________ reduced thanks to sharing convolutions across proposals
+nevertheless|__________ the region proposal step still consumes as much running time as the detection network
+advantage|fast rcnns take __________ of gpus, while the region proposal methods are implemented on the cpu, making such runtime comparisons inequitable
+accelerate|an obvious way to __________ proposal computation is to reimplement it for the gpu
+elegant|leads to an __________ and effective solution
+observation|our __________ is that the convolutional feature maps can also be used for generating region proposals
+additional|on top of these convolutional features, we construct an rpn by adding a few __________ convolutional layers
+simultaneously|that __________ regress region bounds and objectness scores at each location on a regular grid
