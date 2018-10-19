@@ -1,15 +1,15 @@
-treats|note that semantic segmentation __________ thing classes as stuff
-deploy|the loss function is easy to __________ and combine with other pixel-wise prediction tasks
+extend|we modify and __________ this architecture such that it works with very few training images and yields more precise segmentations
+associated|these are not currently popular, possibly due to lack of appropriate metrics or __________ recognition challenges
+capture|to __________ performance for all classes (stuff and things) in an interpretable and unified manner
+rigorous|using the proposed metric, we perform a __________ study of both human and machine performance
+additional|the original mnist is augmented with __________ noise and distortion in order to make the problem more challenging
+reveal|to __________ interesting insights about the task
+revive|the aim of our work is to __________ the interest of the community in a more unified view of image segmentation
+dominant|in the early days of computer vision, things – countable objects  received the __________ share of attention
+elevated|questioning the wisdom of this trend, adelson __________ the importance of studying systems that recognize stuff
+commonly|studying stuff is most __________ formulated as a task known as semantic segmentation
 amorphous|as stuff is __________ and uncountable, this task is defined as simply assigning a class label to each pixel in an image
-novel|we proposed a __________ objective to train a network to perform a clustering-based instance labeling
-associated|an example __________ with the idea of equation 3 is illustrated in figure 2
-advances|recent __________ in object detection are driven by the success of region proposal methods and rcnn
-computationally|rcnn were __________ expensive as originally developed
-drastically|their cost has been __________ reduced thanks to sharing convolutions across proposals
-nevertheless|__________ the region proposal step still consumes as much running time as the detection network
-advantage|fast rcnns take __________ of gpus, while the region proposal methods are implemented on the cpu, making such runtime comparisons inequitable
-accelerate|an obvious way to __________ proposal computation is to reimplement it for the gpu
-elegant|leads to an __________ and effective solution
-observation|our __________ is that the convolutional feature maps can also be used for generating region proposals
-additional|on top of these convolutional features, we construct an rpn by adding a few __________ convolutional layers
-simultaneously|that __________ regress region bounds and objectness scores at each location on a regular grid
+treats|note that semantic segmentation __________ thing classes as stuff
+formulated|in contrast, studying things is typically __________ as the task of object detection or instance segmentation
+substantially|while seemingly related, the datasets, details, and metrics for these two visual recognition tasks vary __________
+dilations|stuff classifiers are usually built on fully convolutional nets with __________

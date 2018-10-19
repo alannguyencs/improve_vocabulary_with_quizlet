@@ -1,6 +1,6 @@
 from random import shuffle
 import codecs
-
+import sys
 
 stop_words = "0123456789.,;:'!@#$%^&*()_-=+<>?"
 
@@ -78,8 +78,11 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
     print("\n------------------------\n")
     print ("Number of words so far:", len(words_canvas))
 
+if __name__ == '__main__':
+    class_name = sys.argv[0]
+    part_id = int(sys.argv[1])
+    generate_quizlet(class_name, part_id)
 
-generate_quizlet('sunny', part_id=9)
-# generate_quizlet('alan', part_id=5)
 
-
+# generate_quizlet('sunny', part_id=16)
+# generate_quizlet('alan', part_id=2)

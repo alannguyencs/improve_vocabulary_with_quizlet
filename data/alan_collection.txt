@@ -57,4 +57,12 @@ to enable assistive devices to convey real-time scene information to human users
 Current detection systems repurpose classifiers to perform detection
 these systems take a classifier for that object and evaluate it at various locations and scales in a test image
 post-processing is used to refine the bounding boxes, eliminate duplicate detections
-This unified model has several benefits over traditional methods of object detection.
+This unified model has several benefits over traditional methods of object detection
+Science proves there are six ways you can learn and retain something faster
+You'll need to teach someone else the material or task you are trying to grasp, you can speed up your learning and remember more
+the expectation changes your mind-set so that you engage in more effective approaches to learning that whose simply learn to pass a test
+sleeping between two learning sessions greatly improves retention
+when teachers prepare to teach, they tend to seek out key points and organize information into a coherent structure
+Experts suggest dedicating 30-50 minutes to learning new material
+getting sleep in between study sessions can boost your recall up to six months later
+practice a slightly modified version of a task you want to master
