@@ -4,7 +4,7 @@ import sys
 
 stop_words = "0123456789.,;:'!@#$%^&*()_-=+<>?"
 
-def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
+def generate_quizlet(class_name, part_id, mode="new", num_new_quest=10, num_old_quest=5):
     root_path = './data/' + class_name
     input_file = codecs.open(root_path + '_collection.txt', 'r', 'utf8')
     output_file = codecs.open(root_path + '_quizlet.txt', 'w', 'utf8')
@@ -29,12 +29,18 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
     for line in input_file:
         cnt_line += 1
 
-        #push old and new sentences to input_sentences
-        if cnt_line == (part_id - 1) * num_new_quest + 1:
-            shuffle(input_sentences)
-            input_sentences = input_sentences[:num_old_quest]
-        if cnt_line == part_id * num_new_quest + 1:
-            break
+        if mode == "review":
+            if cnt_line == part_id * num_new_quest + 1:
+                shuffle(input_sentences)
+                input_sentences = input_sentences[:(num_new_quest + num_old_quest)]
+                break
+        else:  #the defaut mode is "new"
+            #push old and new sentences to input_sentences
+            if cnt_line == (part_id - 1) * num_new_quest + 1:
+                shuffle(input_sentences)
+                input_sentences = input_sentences[:num_old_quest]
+            if cnt_line == part_id * num_new_quest + 1:
+                break
 
         #preprocessing lines
         line = line.lower().replace('\n', '').replace('\r', '')
@@ -79,10 +85,10 @@ def generate_quizlet(class_name, part_id, num_new_quest=10, num_old_quest=5):
     print ("Number of words so far:", len(words_canvas))
 
 if __name__ == '__main__':
-    class_name = sys.argv[0]
-    part_id = int(sys.argv[1])
-    generate_quizlet(class_name, part_id)
+    class_name = sys.argv[1]
+    part_id = int(sys.argv[2])
+    mode = sys.argv[3]
+    generate_quizlet(class_name, part_id, mode)
 
 
-# generate_quizlet('sunny', part_id=16)
-# generate_quizlet('alan', part_id=2)
+# python generate_quizlet.py sunny 15 review
